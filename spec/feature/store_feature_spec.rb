@@ -25,12 +25,13 @@ describe 'DbServer' do
 
     end
 
-    it "has a '/get' path " do
+    it "has a '/get' path and shows a message if no search string given " do
       visit '/get'
       expect(page.status_code).to be(200)
+      expect(page).to have_content("no search parameters given")
     end
 
-    it "returns the value stored in the key for a request on '/get?key=somekey' path" do
+    it "returns the key and value stored in the key for a request on '/get?key=somekey' path" do
       visit '/set?somekey=somevalue'
       visit '/get?key=somekey'
       expect(page).to have_content("somevalue")

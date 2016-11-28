@@ -19,11 +19,13 @@ class DbServer < Sinatra::Base
   end
 
   get '/get' do
-    key = params[:key]
-    result = Store.find(key)
-
-
-    "#{result}"
+    if  !params.empty?
+      key = params[:key]
+      result = Store.find(key)
+      "#{result[0][key]}"
+    else
+      "no search parameters given"
+    end
   end
 
 
