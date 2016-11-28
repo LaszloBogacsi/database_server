@@ -3,7 +3,7 @@ require './model/store.rb'
 
 describe 'Store' do
 
-    let(:store) {Store.new}
+  let(:store) {Store.new}
 
   it 'has an empty database hash by default' do
     expect(store.database).to eq([])
@@ -12,7 +12,6 @@ describe 'Store' do
     store.database << "new item"
     expect(store.database). to eq(["new item"])
   end
-
 
 end
 

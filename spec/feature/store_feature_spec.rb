@@ -7,7 +7,7 @@ describe 'DbServer' do
     visit '/'
     expect(page.status_code).to be(200)
   end
-
+  
   context ' database initialized' do
     before do
       visit '/'
