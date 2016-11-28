@@ -4,18 +4,18 @@ require './model/store.rb'
 class DbServer < Sinatra::Base
   set :port, 4000
 
-  before do
-    @store = Store.return
-  end
-
   get '/' do
     @store = Store.init
     redirect '/set'
   end
 
   get '/set' do
-    Store.create(params)
-    "You saved: #{params}"
+    if params.empty?
+      "please pass in a search string"
+    else
+      Store.create(params)
+      "You saved: #{params}"
+    end
   end
 
   get '/get' do

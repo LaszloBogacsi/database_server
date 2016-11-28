@@ -28,9 +28,6 @@ describe 'Store class methods' do
       @data2 = {'somekey' => 'somevalue'}
     end
 
-    it '.return itself' do
-      expect(Store.return).to eq(@store)
-    end
     it '.create a new data item in store database' do
       Store.create(@data)
       expect(@store.database).to eq([@data])

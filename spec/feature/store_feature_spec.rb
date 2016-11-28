@@ -17,6 +17,7 @@ describe 'DbServer' do
     it "has a '/set' path" do
       visit '/set'
       expect(page.status_code).to be(200)
+      expect(page).to have_content("please pass in a search string")
     end
 
     it 'can accept a query string on the /set path and store it in memory' do

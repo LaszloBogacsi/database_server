@@ -9,10 +9,6 @@ class Store
     @store = Store.new
   end
 
-  def self.return
-    @store
-  end
-
   def self.create(data)
     @store.database << data
   end
